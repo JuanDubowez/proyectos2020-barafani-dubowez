@@ -33,13 +33,13 @@
   </nav>
   <div class="container-fluid mt-2">
     <div class="row">
-      <h1> Calculadora de matrices en 2 simples pasos</h1>
+      <h1 id="main_title"> Calculadora de matrices escalonadas en 2 simples pasos</h1>
     </div>
     <div class="row">
       <div class="col-4">
         <div class="card">
+          <h2 class="card-header"><span class="badge badge-pill badge-primary ml-2">1</span> Creá tu matriz</h2>
           <div class="card-body">
-            <h2 class="card-title"><span class="badge badge-pill badge-primary ml-2">1</span>Creá tu matriz</h2>
             <form>
               <div class="form-group">
                 <label for="formGroupExampleInput">Cantidad de filas de la matriz</label>
@@ -49,7 +49,9 @@
                 <label for="formGroupExampleInput2">Cantidad de columnas de la matriz</label>
                 <input type="text" class="form-control" placeholder="Ingrese el numero de columnas">
               </div>
-              <button class="btn btn-primary" type="submit">Crear</button>
+              <div class="clearfix">
+              <button class="btn btn-primary float-right" type="submit">Crear</button>
+              </div>
             </form>
           </div>
         </div>
@@ -58,9 +60,9 @@
         <canvas></canvas>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-5">
-        <h2><span class="badge badge-pill badge-primary ml-2">2</span>Obtené tu matriz reducida por filas</h2>
+        <h2><span class="badge badge-pill badge-primary ml-2">2</span> Obtené tu matriz reducida por filas</h2>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
