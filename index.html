@@ -20,20 +20,20 @@
     <div class="collapse navbar-collapse" id="main-navigation">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="index.html">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="info.html">Teórico</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="history.html">Historial</a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="container-fluid mt-2">
+  <div class="container-fluid mt-2" id="page-content">
     <div class="row">
-      <h1 id="main_title"> Calculadora de matrices escalonadas en 2 simples pasos</h1>
+      <h1 id="main_title"> Calculadora de matrices escalonadas en 3 simples pasos</h1>
     </div>
     <div class="row">
       <div class="col-4">
@@ -50,7 +50,7 @@
                 <input type="text" class="form-control" placeholder="Ingrese el numero de columnas">
               </div>
               <div class="clearfix">
-              <button class="btn btn-primary float-right" type="submit">Crear</button>
+                <button class="btn btn-primary float-right" type="submit">Crear</button>
               </div>
             </form>
           </div>
@@ -58,20 +58,30 @@
       </div>
       <div class="col-6">
         <canvas></canvas>
-        </div>
+      </div>
     </div>
     <div class="row mt-5">
       <div class="col-5">
-        <h2><span class="badge badge-pill badge-primary ml-2">2</span> Obtené tu matriz reducida por filas</h2>
+        <h2><span class="badge badge-pill badge-primary ml-2">3</span> Obtené tu matriz reducida por filas</h2>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"></script>
-
+    <div class="row mt-5">
+      <div class="col-5">
+        <canvas></canvas>
+      </div>
+    </div>
+  </div>
+  <footer id="sticky-footer" class="py-4 bg-primary text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Calculadora de Matrices</small>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
