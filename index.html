@@ -42,15 +42,15 @@
           <div class="card-body">
             <form>
               <div class="form-group">
-                <label for="formGroupExampleInput">Cantidad de filas de la matriz</label>
-                <input type="text" class="form-control" placeholder="Ingrese el numero de filas">
+                <label for="formMatrixRow">Cantidad de filas de la matriz</label>
+                <input type="text" class="form-control" placeholder="Ingrese el numero de filas" id="rowTextField">
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput2">Cantidad de columnas de la matriz</label>
-                <input type="text" class="form-control" placeholder="Ingrese el numero de columnas">
+                <label for="formMatrixColumn">Cantidad de columnas de la matriz</label>
+                <input type="text" class="form-control" placeholder="Ingrese el numero de columnas" id="columnTextField">
               </div>
               <div class="clearfix">
-                <button class="btn btn-primary float-right" type="submit">Crear</button>
+                <button class="btn btn-primary float-right" type="button" data-toggle="modal" data-target="#createMatrixModal" onclick="getMatrixValues()">Crear</button>
               </div>
             </form>
           </div>
@@ -81,6 +81,28 @@
       <small>Copyright &copy; Calculadora de Matrices</small>
     </div>
   </footer>
+
+<!-- Modal Crear una matriz -->
+<div class="modal fade" id="createMatrixModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="createMatrixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createMatrixModalLabel">Seleccione los valores de la matriz</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="matrix-modal-body">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <script src="./js/canvas.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
