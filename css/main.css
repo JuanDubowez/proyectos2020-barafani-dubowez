@@ -23,9 +23,13 @@ canvas{
     margin-bottom: -8px;
 }
 #navbarText{
+    flex-direction: row;
     flex: content;
-    margin-left: 80%;
+    justify-content: right;
+    padding-left: inherit;
 }
+
 .nav-item{
+    padding: inherit;
     font-size: 18px;
 }
