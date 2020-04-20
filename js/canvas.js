@@ -5,6 +5,7 @@ var c = canvas1.getContext("2d");
 
 var rowValue;
 var columnValue;
+var matrix=[];
 
 
 // Funcion para obtener las filas y columnas de una matriz
@@ -25,10 +26,23 @@ function createMatrixInputs(row,column){
             createMatrixModalBody.appendChild(matrixRow);
         for (var j = 0; j<column; j++) {
             var matrixInput = document.createElement('input');
+            matrixInput.setAttribute('id','input-'+(i+1)+'_'+(j+1))
             var matrix = document.getElementById('matrixRow'+(i+1));
             matrix.appendChild(matrixInput);
         }
     }
+}
+
+// Funcion para obtener los valores de los inputs 
+function obtainInputValues(){
+    for (var i=0;i<rowValue;i++){
+        var row=[];
+        for (var j=0;j<columnValue;j++){
+            row.push(document.getElementById('input-'+(i+1)+'_'+(j+1)).value)
+        }
+        matrix.push(row);
+    }
+    drawMatrix(matrix);
 }
 
 // Funcion para borrar los componentes del modal creado
@@ -37,21 +51,15 @@ function deleteMatrixInputs(){
     createMatrixModalBody.innerHTML = "";
 }
 
-// Creamos la matriz en el canvas
-c.fillStyle = "#FF0000";
-c.fillRect(0, 0, 20, 25);
-c.font = "30px Arial";
-c.fillText("1", 10, 50);
-
-
 // Funcion para dibujar la matriz en el canvas
 
-function drawMatrix(){
-    console.log(rowValue);
-    for (var i=0; i<rowValue;i++){
-        for (var j=0;j<columnValue;j++){
+function drawMatrix(matrix){
+    console.log(matrix.length);
+    for (var i=0; i<(matrix.length);i++){
+        for (var j=0; j<(matrix.length);j++){
+            console.log(matrix[i][j]);
             c.font = "30px Arial";
-            c.fillText('1',10+(j*20), 50+(j*20))
+            c.fillText(matrix[i][j],10+(j*100), 50+(30*i))
         }
     }
 }
