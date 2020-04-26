@@ -65,15 +65,15 @@ function drawMatrix(matrix,context){
             context.fillText(matrix[i][j],80+(j*100), 50+(30*i));
         }
     }
-    context.lineWidth = 4
-    context.beginPath();
-    context.moveTo(0,0);
-    context.lineTo(0,i*100);
-    context.stroke();
-    context.beginPath();
-    context.moveTo(300,0);
-    context.lineTo(300,i*100);
-    context.stroke();
+    // context.lineWidth = 4
+    // context.beginPath();
+    // context.moveTo(0,0);
+    // context.lineTo(0,i*100);
+    // context.stroke();
+    // context.beginPath();
+    // context.moveTo(300,0);
+    // context.lineTo(300,i*100);
+    // context.stroke();
 }
 
 // Funcion para calcular la matriz reducida por filas
