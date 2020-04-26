@@ -6,6 +6,7 @@ body {
 }
 #main_title{
     margin-left: 1rem;
+    color: #FFFFFF;
 }
 canvas{
     border: 1px solid black;
@@ -14,5 +15,21 @@ canvas{
     flex-shrink: none;
   }
 #page-content {
+    margin-top: -10px;
     flex: 1 0 auto;
+    background-color: #121212;
+}
+#navbar{
+    margin-bottom: -8px;
+}
+#navbarText{
+    flex-direction: row;
+    flex: content;
+    justify-content: right;
+    padding-left: inherit;
+}
+
+.nav-item{
+    padding: inherit;
+    font-size: 18px;
 }
