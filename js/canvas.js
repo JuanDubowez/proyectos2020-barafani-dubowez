@@ -1,7 +1,9 @@
 // Accedemos a componentes html desde el archivo JS
 var createMatrixModalBody = document.getElementById("matrix-modal-body");
 var canvas1 = document.getElementById("canvas1");
+var canvas2 = document.getElementById("canvas2");
 var c = canvas1.getContext("2d");
+var c2 = canvas2.getContext("2d");
 
 var rowValue;
 var columnValue;
@@ -58,6 +60,15 @@ function drawMatrix(matrix){
     for (var i=0; i<(matrix.length);i++){
         for (var j=0; j<(matrix.length);j++){
             console.log(matrix[i][j]);
+            c.beginPath();
+            c.moveTo(0,0)
+            c.lineTo(0,i*100)
+            c.stroke()
+            c.beginPath();
+            c.moveTo(300,0)
+            c.lineTo(300,i*100)
+            c.stroke()
+            c.lineWidth = 5
             c.font = "30px Arial";
             c.fillText(matrix[i][j],10+(j*100), 50+(30*i))
         }

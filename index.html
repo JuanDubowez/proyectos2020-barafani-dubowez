@@ -65,6 +65,9 @@
         <div class="row justify-content-end">
           <canvas id="canvas1"></canvas>
         </div>
+        <div class="row justify-content-end mt-2">
+          <button type="button" class="btn btn-primary" onclick="">Confirmar</button>
+        </div>
       </div>
     </div>
     <div class="row mt-5">
@@ -74,7 +77,7 @@
     </div>
     <div class="row mt-5">
       <div class="col-5">
-        <canvas></canvas>
+        <canvas id="canvas2"></canvas>
       </div>
     </div>
   </div>
@@ -98,7 +101,8 @@
         <div class="modal-body" id="matrix-modal-body">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="deleteMatrixInputs()">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            onclick="deleteMatrixInputs()">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="obtainInputValues()">Confirmar</button>
         </div>
       </div>

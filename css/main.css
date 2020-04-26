@@ -7,9 +7,9 @@ body {
 #main_title{
     margin-left: 1rem;
 }
-canvas{
+/* canvas{
     border: 1px solid black;
-}
+} */
 #sticky-footer {
     flex-shrink: none;
   }
