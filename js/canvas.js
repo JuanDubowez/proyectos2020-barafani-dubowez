@@ -62,6 +62,7 @@ function drawMatrix(matrix,context){
         for (var j=0; j<(columnValue);j++){
             console.log(matrix[i][j]);
             context.font = "30px Arial";
+            context.fillStyle = "white";
             context.fillText(matrix[i][j],80+(j*100), 50+(30*i));
         }
     }
