@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color:#121212;">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
     <a class="navbar-brand" href="index.html">Calculadora de Matrices</a>
       <ul class="navbar-nav mr-auto" id="navbarText">
@@ -19,19 +19,70 @@
         </li>
       </ul>
   </nav>
- 
-      <div class="container-fluid">
-          <div class="row">
-              <h1>¿Que es una matriz escalonada reducida por filas?</h1>
-            </div>
+  <main>
+    <div class="container-fluid mt-2" id="page-content">
+      <div >
+        <h1 id="main_title"> ¿Que es una matriz escalonada reducida por filas?</h1>
+      </div> 
+      <div class="card" id="info">
+        <div class="card-body">
+          <h5 class="card-title">En álgebra lineal una matriz se dice que es escalonada, escalonada por filas o que está en forma escalonada si:</h5>
+          <p class="card-text">
+            <ul>
+              <li>Si es matriz nula, es decir, todos sus elementos son cero.</li>
+              <li>Todas las filas cero están en la parte inferior de la matriz.</li>
+              <li>Las filas no nulas estan en escalera. Todas presentan a la izquierda del primer elemento
+                distinto de cero(elemento pivote),mas ceros que la fila de arriba.</li>
+              <li>Si en cada fila el pivote es el único elemento no nulo de su columna, se dice que es escalonada reducida por filas.</li> 
+            </ul>
+            Toda matriz tiene una unica reducida por filas.
+          </p>
+        </div>
       </div>
+      <div class="card" id="info">
+        <div class="card-body">
+        <h5 class="card-title">Ejemplos</h5>
+        <div class="row">
+          <div class="column"><img src="./imgs/image87ff7.png.svg" class="img-fluid" alt="Responsive image"></div>
+          <div class="column"><img src="./imgs/g5487.png" class="img-fluid" alt="Responsive image"></div>
+          <div class="column"><img src="./imgs/g1632.png" class="img-fluid" alt="Responsive image"></div>
+        </div>
+      </div>
+      </div>
+      <div class="card" id="info">
+        <div class="card-body">
+        <h5 class="card-title">¿Cómo se obtiene?</h5>
+        <p class="card-text">
+          Para llegar a la reducida o escalonada por filas de una matriz A debemos:
+          <ol>
+            <li>
+              Destacar el elemento pivote de una fila no nula y usar operaciones elementales
+              para hacer 0 el resto de elementos de esa columna.
+            </li>
+            <li>
+              A la matriz resultante, destacar el elemento pivote de la siguiente fila y 
+              hacer el mismo procedimiento que hicimos con la fila anterior.
+            </li>
+            <li>
+              Finalizaremos cuando esten todas las columnas en 0 menos el elemento pivote
+            </li>
+            <li>
+              Si solo queremos que sea escalonada, aqui finalizaria el procedimiento.
+              Si queremos reducirla al maximo, los elementos pivotes deben ser 1.
+            </li>
+          </ul>
+        </p> 
+        </div>
+      </div>
+      </div>
+    </div>
+  </main>  
   <footer id="sticky-footer" class="py-4  bg-dark text-white-50">
     <div class="container text-center">
       <small>Copyright &copy; Calculadora de Matrices</small>
     </div>
   </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </html>
