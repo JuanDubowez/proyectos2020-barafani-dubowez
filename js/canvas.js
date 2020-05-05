@@ -27,6 +27,8 @@ function getMatrixValues(){
     $('#createMatrixModal').modal('show');
     rowTextField.value = "";
     columnTextField.value = "";
+    rowTextField.setAttribute('class','form-control')
+    columnTextField.setAttribute('class','form-control')
     }
     else{
         createFormErrorLabels()
