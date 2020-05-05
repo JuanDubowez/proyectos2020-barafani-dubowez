@@ -1,6 +1,15 @@
 .badge-pill {
     border-radius: 100% !important;
 }
+.badge{
+	display: initial !important;
+}
+.card{
+	min-height: 100%;
+}
+#row_home{
+	margin-top:5px;
+}
 #main_title{
     margin-left: 1rem;
     color: #FFFFFF;
@@ -24,26 +33,35 @@ canvas{
     margin-bottom: -8px;
 }
 #navbarText{
-    flex-direction: row;
-    flex: content;
-    justify-content: right;
-    padding-left: inherit;
+  flex-direction: row;
+  flex: content;
+  justify-content: right;
+  padding-left: inherit;
 }
 #info{
-    background-color: #212121;
-    color: #FFFFFF;
-    margin-top: 5px;
+  background-color: #212121;
+  color: #FFFFFF;
+  margin-top: 5px;
+}
+#home{
+  background-color: #212121;
+  color: #FFFFFF;
+  margin-top: 5px;
+}
+#numybtn{
+	color:#000000;
+	background-color:#BB86FC ;
 }
 .nav-item{
     padding: inherit;
     font-size: 18px;
 }
-.row {
+#row_img{
     display: flex;
     flex-wrap: wrap;
     padding: 0 20px;
 }
-.column {
+#col_img{
   flex: 25%;
   text-align: center;
   padding: 40px 4px;
