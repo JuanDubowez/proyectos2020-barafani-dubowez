@@ -1,34 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Testing bootstrap</title>
+  <title>Calculadora de Matrices</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body>
 
-    <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Calculadora de Matrices</a>
-        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-navigation">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+<body style="background-color:#121212;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+    <a class="navbar-brand" href="index.html">Calculadora de Matrices</a>
+    <ul class="navbar-nav mr-auto" id="navbarText">
+      <li class="nav-item">
+        <a class="nav-link" href="info.html">Teoria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="history.html">Historial</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container-fluid mt-2" id="page-content">
+    <div class="row">
+      <h1 id="main_title"> Calculadora de matrices escalonadas en 3 simples pasos</h1>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="card">
+          <h2 class="card-header"><span class="badge badge-pill badge-primary ml-2">1</span> Creá tu matriz</h2>
+          <div class="card-body">
+            <form id="createMatrixForm">
+              <div class="form-group" id="rowFormGroup">
+                <label for="formMatrixRow">Cantidad de filas de la matriz</label>
+                <input type="text" class="form-control" placeholder="Ingrese el numero de filas" id="rowTextField"
+                  aria-describedby="rowHelpBlock">
+                <small id="rowHelpBlock" class="form-text text-muted">
+                  Núm min. de filas: 2 / Núm máx. de filas: 4.
+                </small>
+                <div class="invalid-feedback"><b>Error! Revise el número de filas ingresadas.</b></div>
+              </div>
+              <div class="form-group" id="columnFormGroup">
+                <label for="formMatrixColumn">Cantidad de columnas de la matriz</label>
+                <input type="text" class="form-control" placeholder="Ingrese el numero de columnas" id="columnTextField"
+                  aria-describedby="rowHelpBlock">
+                <small id="columnHelpBlock" class="form-text text-muted">
+                  Núm min. de columnas: 2 / Núm máx. de columnas: 4.
+                </small>
+                <div class="invalid-feedback"><b>Error! Revise el número de columnas ingresadas.</b></div>
+              </div>
+              <div class="clearfix">
+                <button class="btn btn-primary float-right" type="button" data-target="#createMatrixModal"
+                  onclick="getMatrixValues()">Crear</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </nav>
+        <div class="col-4">
+          <div class="row justify-content-end">
+            <h2><span class="badge badge-pill badge-primary ml-2">2</span> Tu matriz inicial:</h2>
+          </div>
+          <div class="row justify-content-end">
+            <canvas id="canvas1"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-5">
+          <h2><span class="badge badge-pill badge-primary ml-2">3</span> Obtené tu matriz reducida por filas</h2>
+        </div>
+        <div class="row justify-content-end">
+          <canvas id="canvas1"></canvas>
+        </div>
+        <div class="row justify-content-end mt-2">
+          <button type="button" class="btn btn-primary" onclick="">Confirmar</button>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-5">
+        <h2><span class="badge badge-pill badge-primary ml-2">3</span> Obtené tu matriz reducida por filas</h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-5">
+        <canvas id="canvas2"></canvas>
+      </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
+  </div>
+  <footer id="sticky-footer" class="py-4  bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Calculadora de Matrices</small>
+    </div>
+  </footer>
+
+  <!-- Modal Crear una matriz -->
+  <div class="modal fade" id="createMatrixModal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="createMatrixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createMatrixModalLabel">Seleccione los valores de la matriz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="deleteMatrixInputs()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="matrix-modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            onclick="deleteMatrixInputs()">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="obtainInputValues()"
+            data-dismiss="modal">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/canvas.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
 </html>
