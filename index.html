@@ -11,6 +11,7 @@
 </head>
 
 <body style="background-color:#121212;">
+  <!-- Barra de navegacion -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
     <a class="navbar-brand" href="index.html">Calculadora de Matrices</a>
     <ul class="navbar-nav mr-auto" id="navbarText">
@@ -22,14 +23,18 @@
       </li>
     </ul>
   </nav>
+  <!-- Contenido del home -->
   <div class="container-fluid mt-2" id="page-content">
+    <!-- Titulo Principal -->
     <div class="row">
       <h1 id="main_title"> Calculadora de matrices escalonadas en 3 simples pasos</h1>
     </div>
-    <div class="row">
+    <!-- Primera fila donde estan los pasos 1 y 2-->
+    <div class="row" id="row_home">
+      <!-- Paso 1 -->
       <div class="col-4">
-        <div class="card">
-          <h2 class="card-header"><span class="badge badge-pill badge-primary ml-2">1</span> Creá tu matriz</h2>
+        <div class="card" id="home">
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">1</span> Creá tu matriz</h3>
           <div class="card-body">
             <form id="createMatrixForm">
               <div class="form-group" id="rowFormGroup">
@@ -51,58 +56,66 @@
                 <div class="invalid-feedback"><b>Error! Revise el número de columnas ingresadas.</b></div>
               </div>
               <div class="clearfix">
-                <button class="btn btn-primary float-right" type="button" data-target="#createMatrixModal"
-                  onclick="getMatrixValues()">Crear</button>
+                <button class="btn float-right" id="numybtn" type="button"
+                  data-target="#createMatrixModal" onclick="getMatrixValues()">Crear</button>
               </div>
             </form>
           </div>
         </div>
-        <div class="col-4">
-          <div class="row justify-content-end">
-            <h2><span class="badge badge-pill badge-primary ml-2">2</span> Tu matriz inicial:</h2>
-          </div>
-          <div class="row justify-content-end">
+      </div>
+      <!-- Paso 2 -->
+      <div class="col-4">
+        <div class="card" id="home">
+          <h3 class="card-header"><span class="badge badge-pill  ml-2" id="numybtn">2</span> Tu matriz inicial:</h3>
+          <div class="card-body" style="text-align: center; margin-top: 8%;">
             <canvas id="canvas1"></canvas>
           </div>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col-5">
-          <h2><span class="badge badge-pill badge-primary ml-2">3</span> Obtené tu matriz reducida por filas</h2>
+    </div>
+    <!-- Segunda fila donde estan los pasos 3 y 4-->
+    <div class="row" id="row_home">
+      <!-- Paso 3-->
+      <div class="col-4">
+        <div class="card" id="home">
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">3</span> Obtené tu matriz reducida por filas</h3>
+          <div class="card-body" style="text-align: center;">
+            <canvas id="canvas2"></canvas>
+            <button class="btn float-right" type="button" id="numybtn" onclick="">Obtener</button>
+          </div>
         </div>
-        <div class="row justify-content-end">
-          <canvas id="canvas1"></canvas>
-        </div>
-        <div class="row justify-content-end mt-2">
-          <button type="button" class="btn btn-primary" onclick="">Confirmar</button>
+      </div>
+      <!-- Paso 4 -->
+      <div class="col-4">
+        <div class="card" id="home">
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">4</span> Operaciones elementales realizadas:</h3>
+          <div class="card-body">
+            <p class="card-text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a 
+              type specimen book. It has survived not only five centuries, but also the
+              leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-5">
-        <h2><span class="badge badge-pill badge-primary ml-2">3</span> Obtené tu matriz reducida por filas</h2>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-5">
-        <canvas id="canvas2"></canvas>
-      </div>
-    </div>
-
   </div>
+  <!-- Pie de pagina -->
   <footer id="sticky-footer" class="py-4  bg-dark text-white-50">
     <div class="container text-center">
       <small>Copyright &copy; Calculadora de Matrices</small>
     </div>
   </footer>
-
+</div>
   <!-- Modal Crear una matriz -->
   <div class="modal fade" id="createMatrixModal" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="createMatrixModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="createMatrixModalLabel">Seleccione los valores de la matriz</h5>
+          <h3 class="modal-title" id="createMatrixModalLabel">Seleccione los valores de la matriz</h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="deleteMatrixInputs()">
             <span aria-hidden="true">&times;</span>
           </button>
