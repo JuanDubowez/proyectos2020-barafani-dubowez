@@ -1,11 +1,20 @@
 .badge-pill {
     border-radius: 100% !important;
 }
+body{
+  background:#121212 !important;
+}
 .badge{
 	display: initial !important;
 }
 .card{
 	min-height: 100%;
+}
+.card_info{
+  min-height: 100%;
+  background-color: #212121;
+  color: #FFFFFF;
+  margin-top: 5px;
 }
 #row_home{
 	margin-top:5px;
@@ -18,7 +27,6 @@ canvas{
     border: 1px solid black;
 }
 #sticky-footer {
-    flex-shrink: none;
     padding: 1em;
     width: 100%;
     margin-top: 10px;
@@ -37,11 +45,6 @@ canvas{
   flex: content;
   justify-content: right;
   padding-left: inherit;
-}
-#info{
-  background-color: #212121;
-  color: #FFFFFF;
-  margin-top: 5px;
 }
 #home{
   background-color: #212121;
