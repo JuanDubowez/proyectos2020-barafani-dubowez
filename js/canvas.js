@@ -1,5 +1,12 @@
 // Accedemos a componentes html desde el archivo JS
 var createMatrixModalBody = document.getElementById("matrix-modal-body");
+var createMatrixForm = document.getElementById("createMatrixForm");
+
+var rowTextField = document.getElementById("rowTextField");
+var columnTextField = document.getElementById("columnTextField");
+var rowGroupDiv= document.getElementById("rowFormGroup");
+var columnGroupDiv= document.getElementById("columnFormGroup");
+
 var canvas1 = document.getElementById("canvas1");
 var canvas2 = document.getElementById("canvas2");
 var c = canvas1.getContext("2d");
@@ -13,9 +20,41 @@ var matrix=[];
 // Funcion para obtener las filas y columnas de una matriz
 
 function getMatrixValues(){
-    rowValue = document.getElementById("rowTextField").value;
-    columnValue = document.getElementById("columnTextField").value;
-    createMatrixInputs(rowValue,columnValue);
+    rowValue = rowTextField.value;
+    columnValue = columnTextField.value;
+    if (formIsValid()){
+    createMatrixInputs(rowValue,columnValue)
+    $('#createMatrixModal').modal('show');
+    rowTextField.value = "";
+    columnTextField.value = "";
+    rowTextField.setAttribute('class','form-control')
+    columnTextField.setAttribute('class','form-control')
+    }
+    else{
+        createFormErrorLabels()
+    }
+}
+
+// Funcion para validar los inputs
+
+function formIsValid(){
+    if ((rowValue<2 || rowValue>4 ) || (columnValue<2 || columnValue>4) ){
+        return false
+    }
+    return true
+}
+
+// Funcion para crear mensajes de error en los textfields
+
+function createFormErrorLabels() {
+    if (rowValue<2 || rowValue>4){
+        rowTextField.setAttribute('class','form-control is-invalid')
+        rowTextField.value = "";
+    }
+    if (columnValue<2 || columnValue>4){
+        columnTextField.setAttribute('class','form-control is-invalid')
+        columnTextField.value = "";
+    }
 }
 
 // Funcion para crear los inputs segun la cantidad de filas y columnas de la matriz

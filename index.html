@@ -14,14 +14,14 @@
   <!-- Barra de navegacion -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
     <a class="navbar-brand" href="index.html">Calculadora de Matrices</a>
-      <ul class="navbar-nav mr-auto" id="navbarText">
-        <li class="nav-item">
-          <a class="nav-link" href="info.html">Teoria</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="history.html">Historial</a>
-        </li>
-      </ul>
+    <ul class="navbar-nav mr-auto" id="navbarText">
+      <li class="nav-item">
+        <a class="nav-link" href="info.html">Teoria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="history.html">Historial</a>
+      </li>
+    </ul>
   </nav>
   <!-- Contenido del home -->
   <div class="container-fluid mt-2" id="page-content">
@@ -36,15 +36,24 @@
         <div class="card" id="home">
           <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">1</span> Creá tu matriz</h3>
           <div class="card-body">
-            <form>
-              <div class="form-group">
+            <form id="createMatrixForm">
+              <div class="form-group" id="rowFormGroup">
                 <label for="formMatrixRow">Cantidad de filas de la matriz</label>
-                <input type="text" class="form-control" placeholder="Ingrese el numero de filas" id="rowTextField">
+                <input type="text" class="form-control" placeholder="Ingrese el numero de filas" id="rowTextField"
+                  aria-describedby="rowHelpBlock">
+                <small id="rowHelpBlock" class="form-text text-muted">
+                  Núm min. de filas: 2 / Núm máx. de filas: 4.
+                </small>
+                <div class="invalid-feedback"><b>Error! Revise el número de filas ingresadas.</b></div>
               </div>
-              <div class="form-group">
+              <div class="form-group" id="columnFormGroup">
                 <label for="formMatrixColumn">Cantidad de columnas de la matriz</label>
-                <input type="text" class="form-control" placeholder="Ingrese el numero de columnas"
-                  id="columnTextField">
+                <input type="text" class="form-control" placeholder="Ingrese el numero de columnas" id="columnTextField"
+                  aria-describedby="rowHelpBlock">
+                <small id="columnHelpBlock" class="form-text text-muted">
+                  Núm min. de columnas: 2 / Núm máx. de columnas: 4.
+                </small>
+                <div class="invalid-feedback"><b>Error! Revise el número de columnas ingresadas.</b></div>
               </div>
               <div class="clearfix">
                 <button class="btn float-right" id="numybtn" type="button" data-toggle="modal"
@@ -116,7 +125,8 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal"
             onclick="deleteMatrixInputs()">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="obtainInputValues()" data-dismiss="modal">Confirmar</button>
+          <button type="button" class="btn btn-primary" onclick="obtainInputValues()"
+            data-dismiss="modal">Confirmar</button>
         </div>
       </div>
     </div>
@@ -129,4 +139,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+
 </html>
