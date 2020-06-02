@@ -96,10 +96,8 @@ function deleteMatrixInputs(){
 // Funcion para dibujar la matriz en el canvas
 
 function drawMatrix(matrix,context){
-    console.log(matrix.length);
     for (var i=0; i<(rowValue);i++){
         for (var j=0; j<(columnValue);j++){
-            console.log(matrix[i][j]);
             context.font = "30px Arial";
             context.fillStyle = "white";
             context.fillText(matrix[i][j],80+(j*100), 50+(30*i));
@@ -155,4 +153,18 @@ function reduceMatrix(matrix){
         lead++;
     }
     drawMatrix(matrix,c2);
+}
+
+// Funcion para almacenar en Session Storage las matrices y sus reducidas
+
+function storeMatrix(){
+    /*Guardando los datos en el LocalStorage*/
+    localStorage.setItem("matrix",JSON.stringify(matrix));
+}
+
+// Funcion para obtener las matrices almacenadas en Session Storage
+
+function getStoredMatrix(){
+    var xd = JSON.parse(localStorage.getItem("matrix"));
+    console.log(xd);
 }
