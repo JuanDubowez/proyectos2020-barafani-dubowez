@@ -7,11 +7,12 @@ var columnTextField = document.getElementById("columnTextField");
 var rowGroupDiv= document.getElementById("rowFormGroup");
 var columnGroupDiv= document.getElementById("columnFormGroup");
 
+if (document.getElementById("canvas1") != null){
 var canvas1 = document.getElementById("canvas1");
 var canvas2 = document.getElementById("canvas2");
 var c = canvas1.getContext("2d");
 var c2 = canvas2.getContext("2d");
-
+}
 var rowValue;
 var columnValue;
 var matrix=[];
@@ -96,8 +97,8 @@ function deleteMatrixInputs(){
 // Funcion para dibujar la matriz en el canvas
 
 function drawMatrix(matrix,context){
-    for (var i=0; i<(rowValue);i++){
-        for (var j=0; j<(columnValue);j++){
+    for (var i=0; i<(matrix.length);i++){
+        for (var j=0; j<(matrix[i].length);j++){
             context.font = "30px Arial";
             context.fillStyle = "white";
             context.fillText(matrix[i][j],80+(j*100), 50+(30*i));
@@ -165,6 +166,14 @@ function storeMatrix(){
 // Funcion para obtener las matrices almacenadas en Session Storage
 
 function getStoredMatrix(){
-    var xd = JSON.parse(localStorage.getItem("matrix"));
-    console.log(xd);
+    var items = JSON.parse(localStorage.getItem("matrix"));
+    var storedMatrixRow = document.getElementById("stored-matrix-row");
+    for (i=0;i<localStorage.length;i++){
+        var matrixCanvas = document.createElement('canvas');
+        matrixCanvas.setAttribute('id','storedCanvas-'+(i+1));
+        var ctx = matrixCanvas.getContext('2d');
+        ctx.font = "30px Arial";
+        drawMatrix(items,ctx);
+        storedMatrixRow.appendChild(matrixCanvas);
+    }
 }

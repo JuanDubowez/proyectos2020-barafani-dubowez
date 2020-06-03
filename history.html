@@ -23,13 +23,21 @@
           </ul>
       </nav>
     <div class="container-fluid mt-2" id="page-content">
-      <button class="btn float-right" type="button" id="numybtn" onclick="getStoredMatrix()">Obtener</button>
+      <div class="row">
+        <h1>Historial de operaciones realizadas</h1>
+      </div>
+      <div class="col-4">
+      <div id="stored-matrix-row" class="row">
+          </div>
+      </div>
+      <button class="btn float-right" type="button" id="" onclick="getStoredMatrix()">Obtener</button>
     </div>
     <footer id="sticky-footer" class="py-4  bg-dark text-white-50">
         <div class="container text-center">
           <small>Copyright &copy; Calculadora de Matrices</small>
         </div>
     </footer>
+    <script src="./js/canvas.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
