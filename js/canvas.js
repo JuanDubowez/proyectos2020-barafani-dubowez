@@ -167,12 +167,13 @@ function reduceMatrix(matrix){
 // Funcion para almacenar en Local Storage las matrices y sus reducidas
 
 function storeMatrix(){
-    console.log(initialMatrix);
-    storedMatrix.push(initialMatrix);
+    var tmpMatrix = JSON.parse(localStorage.getItem("matrix"));
+    console.log(tmpMatrix);
+    tmpMatrix.push(initialMatrix);
     
-    storedMatrix.push(matrix);
-    console.log(storedMatrix);
-    localStorage.setItem("matrix",JSON.stringify(storedMatrix));
+    tmpMatrix.push(matrix);
+
+    localStorage.setItem("matrix",JSON.stringify(tmpMatrix));
 }
 
 // Funcion para obtener las matrices almacenadas en Local Storage
@@ -181,6 +182,7 @@ function getStoredMatrix(){
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
     console.log(localStorage.getItem("matrix"));
+    console.log(items.length);
     for (i=0;i<items.length;i++){
 
         var matrixCanvas = document.createElement('canvas');
