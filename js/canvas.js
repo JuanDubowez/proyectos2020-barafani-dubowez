@@ -78,6 +78,10 @@ function createMatrixInputs(row,column){
 
 // Funcion para obtener los valores de los inputs 
 function obtainInputValues(){
+    if (initialMatrix.length>0 || matrix.length>0){
+        initialMatrix = [];
+        matrix = [];
+    }
     for (var i=0;i<rowValue;i++){
         var row=[];
         var row2=[];
@@ -88,7 +92,6 @@ function obtainInputValues(){
         initialMatrix.push(row);
         matrix.push(row2);
     }
-    console.log(initialMatrix);
     drawMatrix(initialMatrix,c);
     reduceMatrix(matrix);
 }
@@ -178,12 +181,13 @@ function getStoredMatrix(){
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
     console.log(localStorage.getItem("matrix"));
-    for (i=0;i<localStorage.length;i++){
+    for (i=0;i<items.length;i++){
+
         var matrixCanvas = document.createElement('canvas');
         matrixCanvas.setAttribute('id','storedCanvas-'+(i+1));
         var ctx = matrixCanvas.getContext('2d');
         ctx.font = "30px Arial";
-        drawMatrix(items,ctx);
+        drawMatrix(items[i],ctx);
         storedMatrixRow.appendChild(matrixCanvas);
     }
 }
