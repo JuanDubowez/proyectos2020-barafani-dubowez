@@ -16,7 +16,8 @@ var c2 = canvas2.getContext("2d");
 var rowValue;
 var columnValue;
 var matrix=[];
-
+var initialMatrix=[];
+var storedMatrix=[];
 
 // Funcion para obtener las filas y columnas de una matriz
 
@@ -79,12 +80,16 @@ function createMatrixInputs(row,column){
 function obtainInputValues(){
     for (var i=0;i<rowValue;i++){
         var row=[];
+        var row2=[];
         for (var j=0;j<columnValue;j++){
             row.push(document.getElementById('input-'+(i+1)+'_'+(j+1)).value);
+            row2.push(document.getElementById('input-'+(i+1)+'_'+(j+1)).value);
         }
-        matrix.push(row);
+        initialMatrix.push(row);
+        matrix.push(row2);
     }
-    drawMatrix(matrix,c);
+    console.log(initialMatrix);
+    drawMatrix(initialMatrix,c);
     reduceMatrix(matrix);
 }
 
@@ -156,18 +161,23 @@ function reduceMatrix(matrix){
     drawMatrix(matrix,c2);
 }
 
-// Funcion para almacenar en Session Storage las matrices y sus reducidas
+// Funcion para almacenar en Local Storage las matrices y sus reducidas
 
 function storeMatrix(){
-    /*Guardando los datos en el LocalStorage*/
-    localStorage.setItem("matrix",JSON.stringify(matrix));
+    console.log(initialMatrix);
+    storedMatrix.push(initialMatrix);
+    
+    storedMatrix.push(matrix);
+    console.log(storedMatrix);
+    localStorage.setItem("matrix",JSON.stringify(storedMatrix));
 }
 
-// Funcion para obtener las matrices almacenadas en Session Storage
+// Funcion para obtener las matrices almacenadas en Local Storage
 
 function getStoredMatrix(){
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
+    console.log(localStorage.getItem("matrix"));
     for (i=0;i<localStorage.length;i++){
         var matrixCanvas = document.createElement('canvas');
         matrixCanvas.setAttribute('id','storedCanvas-'+(i+1));
