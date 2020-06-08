@@ -112,15 +112,6 @@ function drawMatrix(matrix, context) {
             context.fillText(matrix[i][j], 80 + (j * 100), 50 + (30 * i));
         }
     }
-    // context.lineWidth = 4
-    // context.beginPath();
-    // context.moveTo(0,0);
-    // context.lineTo(0,i*100);
-    // context.stroke();
-    // context.beginPath();
-    // context.moveTo(300,0);
-    // context.lineTo(300,i*100);
-    // context.stroke();
 }
 
 // Funcion para calcular la matriz reducida por filas
@@ -181,6 +172,8 @@ function storeMatrix() {
 function getStoredMatrix() {
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
+
+{/* <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">1</span> Creá tu matriz</h3> */}
 
     for (i = 0; i < items.length; i++) {
         var matrixCanvas = document.createElement('canvas');
