@@ -173,19 +173,24 @@ function getStoredMatrix() {
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
 
-{/* <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">1</span> Creá tu matriz</h3> */}
-
     for (i = 0; i < items.length; i++) {
         var matrixCanvas = document.createElement('canvas');
-        var arrowTxt = document.createElement('h1');
-        arrowTxt.style.marginTop = '57px';
-        arrowTxt.innerHTML = '→';
+        
         matrixCanvas.setAttribute('id', 'storedCanvas-' + (i + 1));
         matrixCanvas.style.margin = '10px';
         var ctx = matrixCanvas.getContext('2d');
         ctx.font = "30px Arial";
         drawMatrix(items[i], ctx);
+        if (i%2==0){
+            var opTxt = document.createElement('h2');
+            opTxt.style.color = 'white';
+            opTxt.innerHTML = 'Operación '+((i+2)/2)+')';
+            storedMatrixRow.appendChild(opTxt);
+        }
         if (i % 2 !=0) {
+            var arrowTxt = document.createElement('h1');
+            arrowTxt.style.marginTop = '57px';
+            arrowTxt.innerHTML = '→';
             storedMatrixRow.appendChild(arrowTxt);
         }
         storedMatrixRow.appendChild(matrixCanvas);
