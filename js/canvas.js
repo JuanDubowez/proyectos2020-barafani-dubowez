@@ -158,8 +158,12 @@ function reduceMatrix(matrix) {
 // Funcion para almacenar en Local Storage las matrices y sus reducidas
 
 function storeMatrix() {
-    var tmpMatrix = JSON.parse(localStorage.getItem("matrix"));
-    console.log(tmpMatrix);
+    if (localStorage.getItem("matrix") != null){
+        tmpMatrix = JSON.parse(localStorage.getItem("matrix"));
+    }else{
+    var tmpMatrix = [];
+    }
+
     tmpMatrix.push(initialMatrix);
 
     tmpMatrix.push(matrix);
