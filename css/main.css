@@ -10,7 +10,7 @@ body{
 .card{
 	min-height: 100%;
 }
-.card_info{
+.card_info, .card_histo{
   min-height: 100%;
   background-color: #212121;
   color: #FFFFFF;
@@ -29,7 +29,7 @@ canvas{
 #sticky-footer {
     padding: 1em;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 35px;
   }
 #page-content {
     margin-top: -10px;

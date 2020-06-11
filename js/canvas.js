@@ -198,9 +198,9 @@ function getStoredMatrix() {
         ctx.font = "30px Arial";
         drawMatrix(items[i], ctx);
         if (i%2==0){
-            var opTxt = document.createElement('h2');
+            var opTxt = document.createElement('h5');
             opTxt.style.color = 'white';
-            opTxt.innerHTML = 'Operación '+((i+2)/2)+')';
+            opTxt.innerHTML = 'Operación '+((i+2)/2)+':';
             storedMatrixRow.appendChild(opTxt);
         }
         if (i % 2 !=0) {
