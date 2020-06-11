@@ -22,6 +22,8 @@ var storedMatrix = [];
 // Funcion para obtener las filas y columnas de una matriz
 
 function getMatrixValues() {
+    c.clearRect(0, 0, canvas1.width, canvas1.height);
+    c2.clearRect(0, 0, canvas2.width, canvas2.height);
     rowValue = rowTextField.value;
     columnValue = columnTextField.value;
     if (formIsValid()) {
@@ -40,7 +42,7 @@ function getMatrixValues() {
 // Funcion para validar los inputs
 
 function formIsValid() {
-    if ((rowValue < 2 || rowValue > 4) || (columnValue < 2 || columnValue > 4)) {
+    if ((rowValue != 2 && rowValue !=3 && rowValue !=4) || (columnValue != 2 && columnValue != 3 && columnValue != 4)) {
         return false
     }
     return true
@@ -49,11 +51,11 @@ function formIsValid() {
 // Funcion para crear mensajes de error en los textfields
 
 function createFormErrorLabels() {
-    if (rowValue < 2 || rowValue > 4) {
+    if (rowValue != 2 && rowValue != 3 && rowValue != 4) {
         rowTextField.setAttribute('class', 'form-control is-invalid')
         rowTextField.value = "";
     }
-    if (columnValue < 2 || columnValue > 4) {
+    if (columnValue != 2 && columnValue != 3 && columnValue != 4) {
         columnTextField.setAttribute('class', 'form-control is-invalid')
         columnTextField.value = "";
     }
@@ -94,6 +96,12 @@ function obtainInputValues() {
     }
     drawMatrix(initialMatrix, c);
     reduceMatrix(matrix);
+
+    // Borrar los datos de columna y fila para crear una nueva matriz
+    createMatrixModalBody.innerHTML = "";
+    /// No deja apretar el boton de guardar matriz si no hay una creada
+    document.getElementById("btnsave").removeAttribute("disabled");
+    document.getElementById("btnsave").style.cursor="pointer";
 }
 
 // Funcion para borrar los componentes del modal creado
@@ -169,6 +177,10 @@ function storeMatrix() {
     tmpMatrix.push(matrix);
 
     localStorage.setItem("matrix", JSON.stringify(tmpMatrix));
+    
+    //No permitir que se vuelva a guardar la matriz 
+    document.getElementById("btnsave").toggleAttribute("disabled")
+    document.getElementById("btnsave").style.cursor="not-allowed";
 }
 
 // Funcion para obtener las matrices almacenadas en Local Storage
