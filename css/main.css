@@ -51,7 +51,16 @@ canvas{
   color: #FFFFFF;
   margin-top: 5px;
 }
-#numybtn{
+#btnsave{
+  color:#000000;
+  background-color:#BB86FC ;
+  cursor:not-allowed;
+}
+#btncrear{
+  color:#000000;
+	background-color:#BB86FC ;
+}
+#num1,#num2,#num3{
 	color:#000000;
 	background-color:#BB86FC ;
 }

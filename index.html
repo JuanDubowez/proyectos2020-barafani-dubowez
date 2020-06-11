@@ -34,7 +34,7 @@
       <!-- Paso 1 -->
       <div class="col-4">
         <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">1</span> Creá tu matriz</h3>
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="num1">1</span> Creá tu matriz</h3>
           <div class="card-body">
             <form id="createMatrixForm">
               <div class="form-group" id="rowFormGroup">
@@ -56,7 +56,7 @@
                 <div class="invalid-feedback"><b>Error! Revise el número de columnas ingresadas.</b></div>
               </div>
               <div class="clearfix">
-                <button class="btn float-right" id="numybtn" type="button"
+                <button class="btn float-right" id="btncrear" type="button"
                   data-target="#createMatrixModal" onclick="getMatrixValues()">Crear</button>
               </div>
             </form>
@@ -66,7 +66,7 @@
       <!-- Paso 2 -->
       <div class="col-4">
         <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill  ml-2" id="numybtn">2</span> Tu matriz inicial:</h3>
+          <h3 class="card-header"><span class="badge badge-pill  ml-2" id="num2">2</span> Tu matriz inicial:</h3>
           <div class="card-body" style="text-align: center; margin-top: 8%;">
             <canvas id="canvas1"></canvas>
           </div>
@@ -78,10 +78,10 @@
       <!-- Paso 3-->
       <div class="col-4">
         <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">3</span> Obtené tu matriz reducida por filas</h3>
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="num3">3</span> Obtené tu matriz reducida por filas</h3>
           <div class="card-body" style="text-align: center;">
             <canvas id="canvas2"></canvas>
-            <button class="btn float-right" type="button" id="numybtn" onclick="storeMatrix()">Guardar</button>
+            <button class="btn float-right" type="button" id="btnsave" disabled onclick="storeMatrix()">Guardar</button>
           </div>
         </div>
       </div>
