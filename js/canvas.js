@@ -117,7 +117,7 @@ function drawMatrix(matrix, context) {
         for (var j = 0; j < (matrix[i].length); j++) {
             context.font = "30px Arial";
             context.fillStyle = "white";
-            context.fillText(matrix[i][j], 80 + (j * 100), 50 + (30 * i));
+            context.fillText(matrix[i][j], (150)/matrix.length + (j * 100), 50-(matrix[i].length)*2 + (30 * i));
         }
     }
 }
@@ -160,6 +160,7 @@ function reduceMatrix(matrix) {
         }
         lead++;
     }
+    console.log(matrix)
     drawMatrix(matrix, c2);
 }
 
@@ -188,7 +189,7 @@ function storeMatrix() {
 function getStoredMatrix() {
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
-
+    
     for (i = 0; i < items.length; i++) {
         var matrixCanvas = document.createElement('canvas');
         
@@ -198,10 +199,14 @@ function getStoredMatrix() {
         ctx.font = "30px Arial";
         drawMatrix(items[i], ctx);
         if (i%2==0){
+            var opDiv = document.createElement('div');
+            opDiv.classList = 'row';
+            opDiv.setAttribute('id','canvasRow-' + (i));
             var opTxt = document.createElement('h5');
             opTxt.style.color = 'white';
             opTxt.innerHTML = 'Operación '+((i+2)/2)+':';
-            storedMatrixRow.appendChild(opTxt);
+            storedMatrixRow.appendChild(opDiv);
+            opDiv.appendChild(opTxt);
         }
         if (i % 2 !=0) {
             var arrowTxt = document.createElement('h1');
