@@ -189,10 +189,9 @@ function storeMatrix() {
 function getStoredMatrix() {
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
-    
+    var divIndex = -2;
     for (i = 0; i < items.length; i++) {
         var matrixCanvas = document.createElement('canvas');
-        
         matrixCanvas.setAttribute('id', 'storedCanvas-' + (i + 1));
         matrixCanvas.style.margin = '10px';
         var ctx = matrixCanvas.getContext('2d');
@@ -206,14 +205,16 @@ function getStoredMatrix() {
             opTxt.style.color = 'white';
             opTxt.innerHTML = 'Operación '+((i+2)/2)+':';
             storedMatrixRow.appendChild(opDiv);
+            divIndex+=2;
             opDiv.appendChild(opTxt);
         }
+        var actualDiv = document.getElementById('canvasRow-'+divIndex);
         if (i % 2 !=0) {
             var arrowTxt = document.createElement('h1');
             arrowTxt.style.marginTop = '57px';
             arrowTxt.innerHTML = '→';
-            storedMatrixRow.appendChild(arrowTxt);
+            actualDiv.appendChild(arrowTxt);
         }
-        storedMatrixRow.appendChild(matrixCanvas);
+        actualDiv.appendChild(matrixCanvas);
     }
 }
