@@ -1,4 +1,4 @@
-// Accedemos a componentes html desde el archivo JS
+/** Accedemos a componentes html desde el archivo JS */
 var createMatrixModalBody = document.getElementById("matrix-modal-body");
 var createMatrixForm = document.getElementById("createMatrixForm");
 
@@ -19,7 +19,9 @@ var matrix = [];
 var initialMatrix = [];
 var storedMatrix = [];
 
-// Funcion para obtener las filas y columnas de una matriz
+/**
+ * Obtiene las filas y columnas de una matriz.
+ */
 
 function getMatrixValues() {
     c.clearRect(0, 0, canvas1.width, canvas1.height);
@@ -39,7 +41,9 @@ function getMatrixValues() {
     }
 }
 
-// Funcion para validar los inputs
+/**
+ * Valida los inputs del form.
+ */
 
 function formIsValid() {
     if ((rowValue != 2 && rowValue !=3 && rowValue !=4) || (columnValue != 2 && columnValue != 3 && columnValue != 4)) {
@@ -48,7 +52,9 @@ function formIsValid() {
     return true
 }
 
-// Funcion para crear mensajes de error en los textfields
+/**
+ * Crea mensajes de error en caso de que el form no sea valido.
+ */
 
 function createFormErrorLabels() {
     if (rowValue != 2 && rowValue != 3 && rowValue != 4) {
@@ -61,7 +67,11 @@ function createFormErrorLabels() {
     }
 }
 
-// Funcion para crear los inputs segun la cantidad de filas y columnas de la matriz
+/**
+ * Crea la cantidad de inputs del form de acuerdo al tamaño de la matriz ingresada.
+ * @param {int} row - Numero de filas de la matriz.
+ * @param {int} column - Numero de columnas de la matrix.
+ */
 
 function createMatrixInputs(row, column) {
     for (var i = 0; i < row; i++) {
@@ -78,7 +88,10 @@ function createMatrixInputs(row, column) {
     }
 }
 
-// Funcion para obtener los valores de los inputs 
+/**
+ * Obtiene los valores ingresados en los inputs para luego dibujarlos en el canvas.
+ */
+
 function obtainInputValues() {
     if (initialMatrix.length > 0 || matrix.length > 0) {
         initialMatrix = [];
@@ -97,20 +110,26 @@ function obtainInputValues() {
     drawMatrix(initialMatrix, c);
     reduceMatrix(matrix);
 
-    // Borrar los datos de columna y fila para crear una nueva matriz
+    /**  Borrar los datos de columna y fila para crear una nueva matriz */
     createMatrixModalBody.innerHTML = "";
-    /// No deja apretar el boton de guardar matriz si no hay una creada
+    /** No deja apretar el boton de guardar matriz si no hay una creada */ 
     document.getElementById("btnsave").removeAttribute("disabled");
     document.getElementById("btnsave").style.cursor="pointer";
 }
 
-// Funcion para borrar los componentes del modal creado
+/**
+ * Borra los inputs del modal una vez creada la matriz.
+ */
 
 function deleteMatrixInputs() {
     createMatrixModalBody.innerHTML = "";
 }
 
-// Funcion para dibujar la matriz en el canvas
+/**
+ * Dibuja la matriz en el canvas.
+ * @param {Array<Array<int>>} matrix - Matriz de numeros.
+ * @param {CanvasRenderingContext2D} context - Contexto del canvas.
+ */
 
 function drawMatrix(matrix, context) {
     for (var i = 0; i < (matrix.length); i++) {
@@ -122,7 +141,10 @@ function drawMatrix(matrix, context) {
     }
 }
 
-// Funcion para calcular la matriz reducida por filas
+/**
+ * Reduce la matriz a una matriz escalonada por filas.
+ * @param {Array<Array<int>>} matrix - Matriz de numeros.
+ */
 
 function reduceMatrix(matrix) {
     var lead = 0;
@@ -164,7 +186,9 @@ function reduceMatrix(matrix) {
     drawMatrix(matrix, c2);
 }
 
-// Funcion para almacenar en Local Storage las matrices y sus reducidas
+/**
+ * Almacena en LocalStorage(Cache) la matriz.
+ */
 
 function storeMatrix() {
     if (localStorage.getItem("matrix") != null){
@@ -179,12 +203,14 @@ function storeMatrix() {
 
     localStorage.setItem("matrix", JSON.stringify(tmpMatrix));
     
-    //No permitir que se vuelva a guardar la matriz 
+    /** No permitir que se vuelva a guardar la matriz */
     document.getElementById("btnsave").toggleAttribute("disabled")
     document.getElementById("btnsave").style.cursor="not-allowed";
 }
 
-// Funcion para obtener las matrices almacenadas en Local Storage
+/**
+ * Obtiene las matrices almacenadas en el LocalStorage.
+ */
 
 function getStoredMatrix() {
     var items = JSON.parse(localStorage.getItem("matrix"));
