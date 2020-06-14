@@ -82,6 +82,7 @@ function createMatrixInputs(row, column) {
         for (var j = 0; j < column; j++) {
             var matrixInput = document.createElement('input');
             matrixInput.setAttribute('id', 'input-' + (i + 1) + '_' + (j + 1));
+            matrixInput.setAttribute('type','number');
             var matrix = document.getElementById('matrixRow' + (i + 1));
             matrix.appendChild(matrixInput);
         }
