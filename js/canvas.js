@@ -1,4 +1,4 @@
-// Accedemos a componentes html desde el archivo JS
+/** Accedemos a componentes html desde el archivo JS */
 var createMatrixModalBody = document.getElementById("matrix-modal-body");
 var createMatrixForm = document.getElementById("createMatrixForm");
 
@@ -19,9 +19,13 @@ var matrix = [];
 var initialMatrix = [];
 var storedMatrix = [];
 
-// Funcion para obtener las filas y columnas de una matriz
+/**
+ * Obtiene las filas y columnas de una matriz.
+ */
 
 function getMatrixValues() {
+    c.clearRect(0, 0, canvas1.width, canvas1.height);
+    c2.clearRect(0, 0, canvas2.width, canvas2.height);
     rowValue = rowTextField.value;
     columnValue = columnTextField.value;
     if (formIsValid()) {
@@ -37,29 +41,37 @@ function getMatrixValues() {
     }
 }
 
-// Funcion para validar los inputs
+/**
+ * Valida los inputs del form.
+ */
 
 function formIsValid() {
-    if ((rowValue < 2 || rowValue > 4) || (columnValue < 2 || columnValue > 4)) {
+    if ((rowValue != 2 && rowValue !=3 && rowValue !=4) || (columnValue != 2 && columnValue != 3 && columnValue != 4)) {
         return false
     }
     return true
 }
 
-// Funcion para crear mensajes de error en los textfields
+/**
+ * Crea mensajes de error en caso de que el form no sea valido.
+ */
 
 function createFormErrorLabels() {
-    if (rowValue < 2 || rowValue > 4) {
+    if (rowValue != 2 && rowValue != 3 && rowValue != 4) {
         rowTextField.setAttribute('class', 'form-control is-invalid')
         rowTextField.value = "";
     }
-    if (columnValue < 2 || columnValue > 4) {
+    if (columnValue != 2 && columnValue != 3 && columnValue != 4) {
         columnTextField.setAttribute('class', 'form-control is-invalid')
         columnTextField.value = "";
     }
 }
 
-// Funcion para crear los inputs segun la cantidad de filas y columnas de la matriz
+/**
+ * Crea la cantidad de inputs del form de acuerdo al tamaño de la matriz ingresada.
+ * @param {int} row - Numero de filas de la matriz.
+ * @param {int} column - Numero de columnas de la matrix.
+ */
 
 function createMatrixInputs(row, column) {
     for (var i = 0; i < row; i++) {
@@ -70,13 +82,17 @@ function createMatrixInputs(row, column) {
         for (var j = 0; j < column; j++) {
             var matrixInput = document.createElement('input');
             matrixInput.setAttribute('id', 'input-' + (i + 1) + '_' + (j + 1));
+            matrixInput.setAttribute('type','number');
             var matrix = document.getElementById('matrixRow' + (i + 1));
             matrix.appendChild(matrixInput);
         }
     }
 }
 
-// Funcion para obtener los valores de los inputs 
+/**
+ * Obtiene los valores ingresados en los inputs para luego dibujarlos en el canvas.
+ */
+
 function obtainInputValues() {
     if (initialMatrix.length > 0 || matrix.length > 0) {
         initialMatrix = [];
@@ -94,27 +110,42 @@ function obtainInputValues() {
     }
     drawMatrix(initialMatrix, c);
     reduceMatrix(matrix);
+
+    /**  Borrar los datos de columna y fila para crear una nueva matriz */
+    createMatrixModalBody.innerHTML = "";
+    /** No deja apretar el boton de guardar matriz si no hay una creada */ 
+    document.getElementById("btnsave").removeAttribute("disabled");
+    document.getElementById("btnsave").style.cursor="pointer";
 }
 
-// Funcion para borrar los componentes del modal creado
+/**
+ * Borra los inputs del modal una vez creada la matriz.
+ */
 
 function deleteMatrixInputs() {
     createMatrixModalBody.innerHTML = "";
 }
 
-// Funcion para dibujar la matriz en el canvas
+/**
+ * Dibuja la matriz en el canvas.
+ * @param {Array<Array<int>>} matrix - Matriz de numeros.
+ * @param {CanvasRenderingContext2D} context - Contexto del canvas.
+ */
 
 function drawMatrix(matrix, context) {
     for (var i = 0; i < (matrix.length); i++) {
         for (var j = 0; j < (matrix[i].length); j++) {
             context.font = "30px Arial";
             context.fillStyle = "white";
-            context.fillText(matrix[i][j], 80 + (j * 100), 50 + (30 * i));
+            context.fillText(matrix[i][j], (150)/matrix.length + (j * 100), 50-(matrix[i].length)*2 + (30 * i));
         }
     }
 }
 
-// Funcion para calcular la matriz reducida por filas
+/**
+ * Reduce la matriz a una matriz escalonada por filas.
+ * @param {Array<Array<int>>} matrix - Matriz de numeros.
+ */
 
 function reduceMatrix(matrix) {
     var lead = 0;
@@ -152,10 +183,13 @@ function reduceMatrix(matrix) {
         }
         lead++;
     }
+    console.log(matrix)
     drawMatrix(matrix, c2);
 }
 
-// Funcion para almacenar en Local Storage las matrices y sus reducidas
+/**
+ * Almacena en LocalStorage(Cache) la matriz.
+ */
 
 function storeMatrix() {
     if (localStorage.getItem("matrix") != null){
@@ -169,34 +203,45 @@ function storeMatrix() {
     tmpMatrix.push(matrix);
 
     localStorage.setItem("matrix", JSON.stringify(tmpMatrix));
+    
+    /** No permitir que se vuelva a guardar la matriz */
+    document.getElementById("btnsave").toggleAttribute("disabled")
+    document.getElementById("btnsave").style.cursor="not-allowed";
 }
 
-// Funcion para obtener las matrices almacenadas en Local Storage
+/**
+ * Obtiene las matrices almacenadas en el LocalStorage.
+ */
 
 function getStoredMatrix() {
     var items = JSON.parse(localStorage.getItem("matrix"));
     var storedMatrixRow = document.getElementById("stored-matrix-row");
-
+    var divIndex = -2;
     for (i = 0; i < items.length; i++) {
         var matrixCanvas = document.createElement('canvas');
-        
         matrixCanvas.setAttribute('id', 'storedCanvas-' + (i + 1));
         matrixCanvas.style.margin = '10px';
         var ctx = matrixCanvas.getContext('2d');
         ctx.font = "30px Arial";
         drawMatrix(items[i], ctx);
         if (i%2==0){
-            var opTxt = document.createElement('h2');
+            var opDiv = document.createElement('div');
+            opDiv.classList = 'row';
+            opDiv.setAttribute('id','canvasRow-' + (i));
+            var opTxt = document.createElement('h5');
             opTxt.style.color = 'white';
-            opTxt.innerHTML = 'Operación '+((i+2)/2)+')';
-            storedMatrixRow.appendChild(opTxt);
+            opTxt.innerHTML = 'Operación '+((i+2)/2)+':';
+            storedMatrixRow.appendChild(opDiv);
+            divIndex+=2;
+            opDiv.appendChild(opTxt);
         }
+        var actualDiv = document.getElementById('canvasRow-'+divIndex);
         if (i % 2 !=0) {
             var arrowTxt = document.createElement('h1');
             arrowTxt.style.marginTop = '57px';
             arrowTxt.innerHTML = '→';
-            storedMatrixRow.appendChild(arrowTxt);
+            actualDiv.appendChild(arrowTxt);
         }
-        storedMatrixRow.appendChild(matrixCanvas);
+        actualDiv.appendChild(matrixCanvas);
     }
 }
