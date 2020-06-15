@@ -34,12 +34,12 @@
       <!-- Paso 1 -->
       <div class="col-4">
         <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">1</span> Creá tu matriz</h3>
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="num1">1</span> Creá tu matriz</h3>
           <div class="card-body">
             <form id="createMatrixForm">
               <div class="form-group" id="rowFormGroup">
                 <label for="formMatrixRow">Cantidad de filas de la matriz</label>
-                <input type="text" class="form-control" placeholder="Ingrese el numero de filas" id="rowTextField"
+                <input type="number" class="form-control" placeholder="Ingrese el numero de filas" id="rowTextField"
                   aria-describedby="rowHelpBlock">
                 <small id="rowHelpBlock" class="form-text text-muted">
                   Núm min. de filas: 2 / Núm máx. de filas: 4.
@@ -48,7 +48,7 @@
               </div>
               <div class="form-group" id="columnFormGroup">
                 <label for="formMatrixColumn">Cantidad de columnas de la matriz</label>
-                <input type="text" class="form-control" placeholder="Ingrese el numero de columnas" id="columnTextField"
+                <input type="number" class="form-control" placeholder="Ingrese el numero de columnas" id="columnTextField"
                   aria-describedby="rowHelpBlock">
                 <small id="columnHelpBlock" class="form-text text-muted">
                   Núm min. de columnas: 2 / Núm máx. de columnas: 4.
@@ -56,7 +56,7 @@
                 <div class="invalid-feedback"><b>Error! Revise el número de columnas ingresadas.</b></div>
               </div>
               <div class="clearfix">
-                <button class="btn float-right" id="numybtn" type="button"
+                <button class="btn float-right" id="btncrear" type="button"
                   data-target="#createMatrixModal" onclick="getMatrixValues()">Crear</button>
               </div>
             </form>
@@ -66,37 +66,22 @@
       <!-- Paso 2 -->
       <div class="col-4">
         <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill  ml-2" id="numybtn">2</span> Tu matriz inicial:</h3>
+          <h3 class="card-header"><span class="badge badge-pill  ml-2" id="num2">2</span> Tu matriz inicial:</h3>
           <div class="card-body" style="text-align: center; margin-top: 8%;">
             <canvas id="canvas1"></canvas>
           </div>
         </div>
       </div>
     </div>
-    <!-- Segunda fila donde estan los pasos 3 y 4-->
+    <!-- Segunda fila donde esta el paso 3 -->
     <div class="row" id="row_home">
       <!-- Paso 3-->
       <div class="col-4">
         <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">3</span> Obtené tu matriz reducida por filas</h3>
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="num3">3</span> Obtené tu matriz reducida por filas</h3>
           <div class="card-body" style="text-align: center;">
             <canvas id="canvas2"></canvas>
-            <button class="btn float-right" type="button" id="numybtn" onclick="storeMatrix()">Guardar</button>
-          </div>
-        </div>
-      </div>
-      <!-- Paso 4 -->
-      <div class="col-4">
-        <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill ml-2" id="numybtn">4</span> Operaciones elementales realizadas:</h3>
-          <div class="card-body">
-            <p class="card-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a 
-              type specimen book. It has survived not only five centuries, but also the
-              leap into electronic typesetting, remaining essentially unchanged.
-            </p>
+            <button class="btn float-right" type="button" id="btnsave" disabled onclick="storeMatrix()">Guardar</button>
           </div>
         </div>
       </div>
@@ -113,19 +98,19 @@
   <div class="modal fade" id="createMatrixModal" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="createMatrixModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
+      <div class="modal-content" id="modal">
         <div class="modal-header">
           <h3 class="modal-title" id="createMatrixModalLabel">Seleccione los valores de la matriz</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="deleteMatrixInputs()">
+          <button type="button" class="close" data-dismiss="modal" id="close" aria-label="Close" onclick="deleteMatrixInputs()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body" id="matrix-modal-body">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btncerrar"
             onclick="deleteMatrixInputs()">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="obtainInputValues()"
+          <button type="button" class="btn btn-primary"id="btnconfirm" onclick="obtainInputValues()"
             data-dismiss="modal">Confirmar</button>
         </div>
       </div>
