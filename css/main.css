@@ -19,6 +19,7 @@ body{
 #modal{
   background-color: #212121;
   color: #FFFFFF;
+  width: max-content;
 }
 #row_home{
 	margin-top:5px;
