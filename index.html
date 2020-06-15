@@ -48,16 +48,16 @@
               </div>
               <div class="form-group" id="columnFormGroup">
                 <label for="formMatrixColumn">Cantidad de columnas de la matriz</label>
-                <input type="number" class="form-control" placeholder="Ingrese el numero de columnas" id="columnTextField"
-                  aria-describedby="rowHelpBlock">
+                <input type="number" class="form-control" placeholder="Ingrese el numero de columnas"
+                  id="columnTextField" aria-describedby="rowHelpBlock">
                 <small id="columnHelpBlock" class="form-text text-muted">
                   Núm min. de columnas: 2 / Núm máx. de columnas: 4.
                 </small>
                 <div class="invalid-feedback"><b>Error! Revise el número de columnas ingresadas.</b></div>
               </div>
               <div class="clearfix">
-                <button class="btn float-right" id="btncrear" type="button"
-                  data-target="#createMatrixModal" onclick="getMatrixValues()">Crear</button>
+                <button class="btn float-right" id="btncrear" type="button" data-target="#createMatrixModal"
+                  onclick="getMatrixValues()">Crear</button>
               </div>
             </form>
           </div>
@@ -78,7 +78,8 @@
       <!-- Paso 3-->
       <div class="col-4">
         <div class="card" id="home">
-          <h3 class="card-header"><span class="badge badge-pill ml-2" id="num3">3</span> Obtené tu matriz reducida por filas</h3>
+          <h3 class="card-header"><span class="badge badge-pill ml-2" id="num3">3</span> Obtené tu matriz reducida por
+            filas</h3>
           <div class="card-body" style="text-align: center;">
             <canvas id="canvas2"></canvas>
             <button class="btn float-right" type="button" id="btnsave" disabled onclick="storeMatrix()">Guardar</button>
@@ -93,7 +94,7 @@
       <small>Copyright &copy; Calculadora de Matrices</small>
     </div>
   </footer>
-</div>
+  </div>
   <!-- Modal Crear una matriz -->
   <div class="modal fade" id="createMatrixModal" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="createMatrixModalLabel" aria-hidden="true">
@@ -101,7 +102,8 @@
       <div class="modal-content" id="modal">
         <div class="modal-header">
           <h3 class="modal-title" id="createMatrixModalLabel">Seleccione los valores de la matriz</h3>
-          <button type="button" class="close" data-dismiss="modal" id="close" aria-label="Close" onclick="deleteMatrixInputs()">
+          <button type="button" class="close" data-dismiss="modal" id="close" aria-label="Close"
+            onclick="deleteMatrixInputs()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -110,7 +112,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btncerrar"
             onclick="deleteMatrixInputs()">Cerrar</button>
-          <button type="button" class="btn btn-primary"id="btnconfirm" onclick="obtainInputValues()"
+          <button type="button" class="btn btn-primary" id="btnconfirm" onclick="obtainInputValues()"
             data-dismiss="modal">Confirmar</button>
         </div>
       </div>

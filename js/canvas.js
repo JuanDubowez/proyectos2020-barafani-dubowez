@@ -46,7 +46,7 @@ function getMatrixValues() {
  */
 
 function formIsValid() {
-    if ((rowValue != 2 && rowValue !=3 && rowValue !=4) || (columnValue != 2 && columnValue != 3 && columnValue != 4)) {
+    if ((rowValue != 2 && rowValue != 3 && rowValue != 4) || (columnValue != 2 && columnValue != 3 && columnValue != 4)) {
         return false
     }
     return true
@@ -82,7 +82,7 @@ function createMatrixInputs(row, column) {
         for (var j = 0; j < column; j++) {
             var matrixInput = document.createElement('input');
             matrixInput.setAttribute('id', 'input-' + (i + 1) + '_' + (j + 1));
-            matrixInput.setAttribute('type','number');
+            matrixInput.setAttribute('type', 'number');
             var matrix = document.getElementById('matrixRow' + (i + 1));
             matrix.appendChild(matrixInput);
         }
@@ -113,9 +113,9 @@ function obtainInputValues() {
 
     /**  Borrar los datos de columna y fila para crear una nueva matriz */
     createMatrixModalBody.innerHTML = "";
-    /** No deja apretar el boton de guardar matriz si no hay una creada */ 
+    /** No deja apretar el boton de guardar matriz si no hay una creada */
     document.getElementById("btnsave").removeAttribute("disabled");
-    document.getElementById("btnsave").style.cursor="pointer";
+    document.getElementById("btnsave").style.cursor = "pointer";
 }
 
 /**
@@ -137,7 +137,7 @@ function drawMatrix(matrix, context) {
         for (var j = 0; j < (matrix[i].length); j++) {
             context.font = "30px Arial";
             context.fillStyle = "white";
-            context.fillText(matrix[i][j], (150)/matrix.length + (j * 70), 50-(matrix[i].length)*2 + (30 * i));
+            context.fillText(matrix[i][j], (150) / matrix.length + (j * 70), 50 - (matrix[i].length) * 2 + (30 * i));
         }
     }
 }
@@ -192,10 +192,10 @@ function reduceMatrix(matrix) {
  */
 
 function storeMatrix() {
-    if (localStorage.getItem("matrix") != null){
+    if (localStorage.getItem("matrix") != null) {
         tmpMatrix = JSON.parse(localStorage.getItem("matrix"));
-    }else{
-    var tmpMatrix = [];
+    } else {
+        var tmpMatrix = [];
     }
 
     tmpMatrix.push(initialMatrix);
@@ -203,10 +203,10 @@ function storeMatrix() {
     tmpMatrix.push(matrix);
 
     localStorage.setItem("matrix", JSON.stringify(tmpMatrix));
-    
+
     /** No permitir que se vuelva a guardar la matriz */
     document.getElementById("btnsave").toggleAttribute("disabled")
-    document.getElementById("btnsave").style.cursor="not-allowed";
+    document.getElementById("btnsave").style.cursor = "not-allowed";
 }
 
 /**
@@ -224,19 +224,19 @@ function getStoredMatrix() {
         var ctx = matrixCanvas.getContext('2d');
         ctx.font = "30px Arial";
         drawMatrix(items[i], ctx);
-        if (i%2==0){
+        if (i % 2 == 0) {
             var opDiv = document.createElement('div');
             opDiv.classList = 'row';
-            opDiv.setAttribute('id','canvasRow-' + (i));
+            opDiv.setAttribute('id', 'canvasRow-' + (i));
             var opTxt = document.createElement('h5');
             opTxt.style.color = 'white';
-            opTxt.innerHTML = 'Operación '+((i+2)/2)+':';
+            opTxt.innerHTML = 'Operación ' + ((i + 2) / 2) + ':';
             storedMatrixRow.appendChild(opDiv);
-            divIndex+=2;
+            divIndex += 2;
             opDiv.appendChild(opTxt);
         }
-        var actualDiv = document.getElementById('canvasRow-'+divIndex);
-        if (i % 2 !=0) {
+        var actualDiv = document.getElementById('canvasRow-' + divIndex);
+        if (i % 2 != 0) {
             var arrowTxt = document.createElement('h1');
             arrowTxt.style.marginTop = '57px';
             arrowTxt.innerHTML = '→';
