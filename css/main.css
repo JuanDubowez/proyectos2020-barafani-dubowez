@@ -16,6 +16,10 @@ body{
   color: #FFFFFF;
   margin-top: 5px;
 }
+#modal{
+  background-color: #212121;
+  color: #FFFFFF;
+}
 #row_home{
 	margin-top:5px;
 }
@@ -56,9 +60,16 @@ canvas{
   background-color:#BB86FC ;
   cursor:not-allowed;
 }
-#btncrear{
+#btncrear, #btnconfirm{
   color:#000000;
 	background-color:#BB86FC ;
+}
+#close{
+  color: #aeaeae;
+}
+#btncerrar{
+  background-color: #817e85;
+  color:#000000;
 }
 #num1,#num2,#num3{
 	color:#000000;
