@@ -137,7 +137,7 @@ function drawMatrix(matrix, context) {
         for (var j = 0; j < (matrix[i].length); j++) {
             context.font = "30px Arial";
             context.fillStyle = "white";
-            context.fillText(matrix[i][j], (150)/matrix.length + (j * 100), 50-(matrix[i].length)*2 + (30 * i));
+            context.fillText(matrix[i][j], (150)/matrix.length + (j * 70), 50-(matrix[i].length)*2 + (30 * i));
         }
     }
 }
