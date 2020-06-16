@@ -110,6 +110,7 @@ function obtainInputValues() {
     }
     drawMatrix(initialMatrix, c);
     reduceMatrix(matrix);
+    drawMatrix(matrix, c2);
 
     /**  Borrar los datos de columna y fila para crear una nueva matriz */
     createMatrixModalBody.innerHTML = "";
@@ -183,8 +184,6 @@ function reduceMatrix(matrix) {
         }
         lead++;
     }
-    console.log(matrix)
-    drawMatrix(matrix, c2);
 }
 
 /**
@@ -214,34 +213,36 @@ function storeMatrix() {
  */
 
 function getStoredMatrix() {
-    var items = JSON.parse(localStorage.getItem("matrix"));
-    var storedMatrixRow = document.getElementById("stored-matrix-row");
-    var divIndex = -2;
-    for (i = 0; i < items.length; i++) {
-        var matrixCanvas = document.createElement('canvas');
-        matrixCanvas.setAttribute('id', 'storedCanvas-' + (i + 1));
-        matrixCanvas.style.margin = '10px';
-        var ctx = matrixCanvas.getContext('2d');
-        ctx.font = "30px Arial";
-        drawMatrix(items[i], ctx);
-        if (i % 2 == 0) {
-            var opDiv = document.createElement('div');
-            opDiv.classList = 'row';
-            opDiv.setAttribute('id', 'canvasRow-' + (i));
-            var opTxt = document.createElement('h5');
-            opTxt.style.color = 'white';
-            opTxt.innerHTML = 'Operación ' + ((i + 2) / 2) + ':';
-            storedMatrixRow.appendChild(opDiv);
-            divIndex += 2;
-            opDiv.appendChild(opTxt);
+    if (localStorage.getItem("matrix") != null) {
+        var items = JSON.parse(localStorage.getItem("matrix"));
+        var storedMatrixRow = document.getElementById("stored-matrix-row");
+        var divIndex = -2;
+        for (i = 0; i < items.length; i++) {
+            var matrixCanvas = document.createElement('canvas');
+            matrixCanvas.setAttribute('id', 'storedCanvas-' + (i + 1));
+            matrixCanvas.style.margin = '10px';
+            var ctx = matrixCanvas.getContext('2d');
+            ctx.font = "30px Arial";
+            drawMatrix(items[i], ctx);
+            if (i % 2 == 0) {
+                var opDiv = document.createElement('div');
+                opDiv.classList = 'row';
+                opDiv.setAttribute('id', 'canvasRow-' + (i));
+                var opTxt = document.createElement('h5');
+                opTxt.style.color = 'white';
+                opTxt.innerHTML = 'Operación ' + ((i + 2) / 2) + ':';
+                storedMatrixRow.appendChild(opDiv);
+                divIndex += 2;
+                opDiv.appendChild(opTxt);
+            }
+            var actualDiv = document.getElementById('canvasRow-' + divIndex);
+            if (i % 2 != 0) {
+                var arrowTxt = document.createElement('h1');
+                arrowTxt.style.marginTop = '57px';
+                arrowTxt.innerHTML = '→';
+                actualDiv.appendChild(arrowTxt);
+            }
+            actualDiv.appendChild(matrixCanvas);
         }
-        var actualDiv = document.getElementById('canvasRow-' + divIndex);
-        if (i % 2 != 0) {
-            var arrowTxt = document.createElement('h1');
-            arrowTxt.style.marginTop = '57px';
-            arrowTxt.innerHTML = '→';
-            actualDiv.appendChild(arrowTxt);
-        }
-        actualDiv.appendChild(matrixCanvas);
     }
 }
