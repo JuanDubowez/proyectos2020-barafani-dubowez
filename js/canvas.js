@@ -85,6 +85,11 @@ function createMatrixInputs(row, column) {
             matrixInput.setAttribute('type', 'number');
             var matrix = document.getElementById('matrixRow' + (i + 1));
             matrix.appendChild(matrixInput);
+            matrixInput.oninput = function () {
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
+            }
         }
     }
 }
