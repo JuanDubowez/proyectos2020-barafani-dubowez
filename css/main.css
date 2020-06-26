@@ -16,12 +16,19 @@ body{
   color: #FFFFFF;
   margin-top: 5px;
 }
+.paso2{
+  text-align: center; 
+  margin-top: 8%;
+}
+.paso3{
+  text-align: center;
+}
 #modal{
   background-color: #212121;
   color: #FFFFFF;
   width: max-content;
 }
-#row_home{
+#row_home_1, #row_home_2{
 	margin-top:5px;
 }
 #main_title{
@@ -51,7 +58,7 @@ canvas{
   justify-content: right;
   padding-left: inherit;
 }
-#home{
+#card_home_1, #card_home_2, #card_home_3{
   background-color: #212121;
   color: #FFFFFF;
   margin-top: 5px;
@@ -85,7 +92,7 @@ canvas{
     flex-wrap: wrap;
     padding: 0 20px;
 }
-#col_img{
+.col_img{
   flex: 25%;
   text-align: center;
   padding: 40px 4px;

@@ -30,15 +30,15 @@
       <h1 id="main_title"> Calculadora de matrices escalonadas en 3 simples pasos</h1>
     </div>
     <!-- Primera fila donde estan los pasos 1 y 2-->
-    <div class="row" id="row_home">
+    <div class="row" id="row_home_1">
       <!-- Paso 1 -->
       <div class="col-4">
-        <div class="card" id="home">
+        <div class="card" id="card_home_1">
           <h3 class="card-header"><span class="badge badge-pill ml-2" id="num1">1</span> Creá tu matriz</h3>
           <div class="card-body">
             <form id="createMatrixForm">
               <div class="form-group" id="rowFormGroup">
-                <label for="formMatrixRow">Cantidad de filas de la matriz</label>
+                <label for="rowTextField">Cantidad de filas de la matriz</label>
                 <input type="number" class="form-control" placeholder="Ingrese el numero de filas" id="rowTextField"
                   aria-describedby="rowHelpBlock">
                 <small id="rowHelpBlock" class="form-text text-muted">
@@ -47,7 +47,7 @@
                 <div class="invalid-feedback"><b>Error! Revise el número de filas ingresadas.</b></div>
               </div>
               <div class="form-group" id="columnFormGroup">
-                <label for="formMatrixColumn">Cantidad de columnas de la matriz</label>
+                <label for="columnTextField">Cantidad de columnas de la matriz</label>
                 <input type="number" class="form-control" placeholder="Ingrese el numero de columnas"
                   id="columnTextField" aria-describedby="rowHelpBlock">
                 <small id="columnHelpBlock" class="form-text text-muted">
@@ -65,22 +65,22 @@
       </div>
       <!-- Paso 2 -->
       <div class="col-4">
-        <div class="card" id="home">
+        <div class="card" id="card_home_2">
           <h3 class="card-header"><span class="badge badge-pill  ml-2" id="num2">2</span> Tu matriz inicial:</h3>
-          <div class="card-body" style="text-align: center; margin-top: 8%;">
+          <div class="card-body paso2">
             <canvas id="canvas1"></canvas>
           </div>
         </div>
       </div>
     </div>
     <!-- Segunda fila donde esta el paso 3 -->
-    <div class="row" id="row_home">
+    <div class="row" id="row_home_2">
       <!-- Paso 3-->
       <div class="col-4">
-        <div class="card" id="home">
+        <div class="card" id="card_home_3">
           <h3 class="card-header"><span class="badge badge-pill ml-2" id="num3">3</span> Obtené tu matriz reducida por
             filas</h3>
-          <div class="card-body" style="text-align: center;">
+          <div class="card-body paso3">
             <canvas id="canvas2"></canvas>
             <button class="btn float-right" type="button" id="btnsave" disabled onclick="storeMatrix()">Guardar</button>
           </div>
